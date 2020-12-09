@@ -106,6 +106,7 @@ For each group, count the number of questions to which everyone answered
 
 """
 
+
 def solve_part1(answers: list) -> int:
     answers = [answer.replace("\n", "") for answer in answers]
     answers = [set(answer) for answer in answers]

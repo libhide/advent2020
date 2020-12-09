@@ -80,6 +80,7 @@ How many individual bags are required inside your single shiny gold bag?
 
 """
 
+
 class Node:
     def __init__(self, id):
         self.id = id
@@ -145,7 +146,7 @@ def read_rules():
                 rules.add_edge(
                     parent=key.strip(),
                     child=" ".join(item_tokens[1:-1]).strip(),
-                    weight=int(item_tokens[0])
+                    weight=int(item_tokens[0]),
                 )
     return rules
 
@@ -176,10 +177,10 @@ def solve_part2(rules: Graph) -> int:
 
 def main():
     rules = read_rules()
-    
+
     part1 = solve_part1(rules=rules)
     part2 = solve_part2(rules=rules)
-    
+
     print(f"part1: {part1}")
     print(f"part2: {part2}")
 

@@ -118,6 +118,7 @@ nop (to jmp). What is the value of the accumulator after the program terminates?
 
 """
 
+
 def execute_program(instructions: list) -> tuple:
     accumulator = 0
     exec_pointer = 0
@@ -139,7 +140,7 @@ def execute_program(instructions: list) -> tuple:
             pass  # nop case
 
         exec_pointer += 1
-    
+
     return accumulator, False
 
 
@@ -152,23 +153,22 @@ def solve_part2(instructions: list) -> int:
     for i in range(len(instructions)):
         if "jmp" in instructions[i]:
             instructions[i] = instructions[i].replace("jmp", "nop")
-            
+
             acc, runs_infinitley = execute_program(instructions)
-            
+
             if not runs_infinitley:
                 return acc
             else:
                 instructions[i] = instructions[i].replace("nop", "jmp")
 
 
-
 def main():
     with open("input.txt") as f:
         instructions = f.read().splitlines()
-    
+
     part1 = solve_part1(instructions=instructions)
     part2 = solve_part2(instructions=instructions)
-    
+
     print(f"part1: {part1}")
     print(f"part2: {part2}")
 
